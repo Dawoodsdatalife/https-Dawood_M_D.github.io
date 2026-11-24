@@ -1,0 +1,52 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="theme-color" content="#4285f4">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@500&family=Manrope:wght@700;800&display=swap" rel="stylesheet"><link rel="stylesheet" href="styles.css">
+<meta name="description" content="Product case study by Dawood M D: making internal knowledge easier to find and safer to trust."><title>Product Case Study | Dawood M D</title></head><body>
+<div class="prog"></div>
+<header><nav class="nav wrap"><a class="brand" href="index.html"><b>D</b>Dawood M D</a><div class="links"><a href="index.html#about">About</a><a href="index.html#projects">Projects</a><a href="index.html#contact">Contact</a></div>
+<div class="tools"><button class="ib" id="cmdk" title="Quick navigation (Ctrl/⌘ + K)">⌘K</button><button class="ib" id="theme" aria-label="Toggle theme">☾</button><button class="ib menu" aria-label="Menu">☰</button></div></nav></header>
+<main class="wrap art"><aside class="toc"><a href="index.html#projects">← Back to portfolio</a><br><a href="#s1">01 Problem</a><a href="#s2">02 Users &amp; jobs</a><a href="#s3">03 Discovery</a><a href="#s4">04 MVP journey</a><a href="#s5">05 Prioritization</a><a href="#s6">06 Metrics</a><a href="#s7">07 Risks</a><a href="#s8">08 Next steps</a></aside>
+<article>
+<p class="ey">Product case study · concept and project framing</p>
+<h1>Making internal knowledge easier to find, and <span class="grad">safer to trust.</span></h1>
+<p>A product-thinking walkthrough of my Enterprise RAG Assistant with Citations &amp; Guardrails, turning a technical build into a user problem, an MVP, prioritization choices, and measurable outcomes.</p>
+<div class="callout"><strong>Honest scope:</strong> this is a proposed product plan. It is not formal customer research, and every figure below is a pilot target, not an achieved result.</div>
+
+<h2 id="s1">01 · Context and problem</h2>
+<p>Employees often need answers buried across many internal documents. Manual search is slow, and an AI answer without evidence is hard to verify. The assistant retrieves relevant passages and answers with citations, protected by input and output guardrails.</p>
+<div class="callout"><strong>How might we</strong> help employees find reliable answers from approved documents, while making it easy to verify where each answer came from?</div>
+
+<h2 id="s2">02 · Users and jobs to be done</h2>
+<ul><li><strong>Knowledge worker:</strong> needs a policy, process, or technical answer quickly, with the source.</li><li><strong>Team lead or knowledge owner:</strong> wants people to use current, approved material.</li><li><strong>Administrator:</strong> needs visibility into document coverage, retrieval quality, and failures.</li></ul>
+<div class="callout"><strong>Job to be done:</strong> when I have a work question, help me find the most relevant approved information and show the evidence, so I can act with confidence.</div>
+
+<h2 id="s3">03 · Discovery plan</h2>
+<p>I would validate the problem before expanding scope. My experience as a co-founder, interviewing industrial clients about needs, specifications, and budgets, shapes how I would run this:</p>
+<ul><li>Interview 5–8 target employees across at least two functions about how they find information today.</li><li>Observe real information-seeking tasks and record time, search steps, and moments of doubt.</li><li>Collect common question types and identify which sources are authoritative.</li><li>Test a prototype with representative questions and ask users to rate usefulness and source clarity.</li></ul>
+
+<h2 id="s4">04 · Proposed MVP and user journey</h2>
+<ol class="steps"><li>The user asks a question in plain language.</li><li>The system checks the input and retrieves passages from the approved index.</li><li>The assistant answers from those passages and attaches citations.</li><li>Output checks screen for unsupported or unsafe content.</li><li>The user opens a citation to verify, or sees a clear “not enough evidence” reply.</li></ol>
+<p><strong>MVP scope:</strong> a limited approved corpus, retrieval, cited answers, basic guardrails, citation opening, and feedback capture. Defer complex permissions, multilingual support, broad integrations, and advanced analytics.</p>
+
+<h2 id="s5">05 · Prioritization and trade-offs</h2>
+<table><tr><th>Capability</th><th>Priority</th><th>Reason</th></tr><tr><td>Relevant retrieval</td><td class="tagm">Must have</td><td>Without good passages, answers are unreliable.</td></tr><tr><td>Source citations</td><td class="tagm">Must have</td><td>Enables verification and trust.</td></tr><tr><td>Input/output guardrails</td><td class="tagm">Must have</td><td>Reduces unsafe or unsupported replies.</td></tr><tr><td>Feedback capture</td><td class="tagl">Should have</td><td>Shows where quality falls short.</td></tr><tr><td>Admin analytics, more channels</td><td>Later</td><td>Valuable once core value is proven.</td></tr></table>
+
+<h2 id="s6">06 · Success metrics and experiment</h2>
+<div class="mg"><div class="card"><b>≥70%</b><small>Task completion<br>proposed pilot target</small></div><div class="card"><b>≥85%</b><small>Citation relevance<br>proposed target</small></div><div class="card"><b>−20%</b><small>Time to answer<br>vs. baseline</small></div></div>
+<table><tr><th>Metric</th><th>Definition</th></tr><tr><td>Task completion</td><td>Share of pilot tasks where users confirm a usable answer.</td></tr><tr><td>Citation relevance</td><td>Share of sampled citations that support their claim.</td></tr><tr><td>Time to answer</td><td>Median time from question to confirmed answer, vs. current workflow.</td></tr><tr><td>Abstention quality</td><td>Share of insufficient-evidence cases where the assistant correctly declines.</td></tr><tr><td>Repeat usage</td><td>Share of pilot users who return for another task.</td></tr></table>
+<p><strong>Experiment:</strong> run a time-boxed pilot with representative tasks, compare against a manual-search baseline, have humans review answer and citation quality, and interview users about trust and friction.</p>
+
+<h2 id="s7">07 · Risks and mitigations</h2>
+<details class="rk"><summary>Incorrect or outdated source material</summary><p>Show document title and date, and give content owners a process to update the index.</p></details>
+<details class="rk"><summary>Unsupported generated claims</summary><p>Require evidence checks and a clear abstention path when retrieval confidence is low.</p></details>
+<details class="rk"><summary>Access-control leakage</summary><p>Enforce document permissions during retrieval and validate before any real deployment.</p></details>
+<details class="rk"><summary>Low adoption</summary><p>Integrate into an existing workflow only after discovery shows where users need it.</p></details>
+<details class="rk"><summary>Misleading metrics</summary><p>Combine quantitative measures with human review and interviews.</p></details>
+
+<h2 id="s8">08 · What I would do next</h2>
+<p>Validate the highest-frequency knowledge tasks, build a representative evaluation set, and baseline current search time and answer confidence. Then prioritize by observed failure patterns, such as poor retrieval, missing citations, stale documents, or unclear abstentions, rather than adding features without evidence.</p>
+<div class="callout"><strong>Takeaway:</strong> the value is not “AI answers questions.” It is helping people finish information tasks faster while they can still verify the answer and see when the system doesn’t know.</div>
+<div class="row" style="margin-top:24px"><a class="btn p" href="mailto:dawoodarsalaan8@gmail.com">Contact Dawood ↗</a><a class="btn" href="index.html#projects">Back to projects</a></div>
+</article></main>
+<footer>© <span id="yr"></span> Dawood M D · A proposed plan; no formal user research or achieved metrics are claimed.</footer>
+<div class="pal" id="pal" role="dialog" aria-label="Quick navigation"><div class="pb2"><input placeholder="Type to jump anywhere…" aria-label="Search actions"><ul></ul></div></div><div class="toast" id="toast"></div><script src="script.js"></script></body></html>
